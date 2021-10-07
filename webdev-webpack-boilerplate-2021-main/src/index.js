@@ -1,13 +1,15 @@
 var score; // to store the current score
+var score2; // to store the current score
 var duration = 1000; // 10 seconds
 var startTime; // start time
 var ended = true; // boolean indicating if game is ended
 // we get DOM References for some HTML elements
 var timerTxt = document.getElementById("timer");
 var scoreTxt = document.getElementById("score");
+var scoreTxt2 = document.getElementById("score2");
 var clicksTxt = document.getElementById("clicks");
+var clicksTxt2 = document.getElementById("clicks2");
 var startBtn = document.getElementById("start");
-var startBtn2 = document.getElementById("start2");
 var clickArea = document.getElementById("clickarea");
 let time = "";
 
@@ -32,8 +34,8 @@ function startGame() {
   console.log(value); // en
   var duration = value; // 10 seconds
   hide(startBtn);
-  hide(startBtn2);
   score = -1;
+  score2 = -1;
   ended = false;
   // we get start time
   startTime = new Date().getTime();
@@ -49,6 +51,7 @@ function startGame() {
     if ((new Date().getTime() - startTime) < (duration * 1000)) {
       timerTxt.textContent = ((new Date().getTime() - startTime)/ 1000).toFixed(3);
       clicksTxt.textContent = (score / total).toFixed(2);
+      clicksTxt2.textContent = (score2 / total).toFixed(2);
     } else {
       // otherwise, game is ended, we clear interval and we set game as ended
       ended = true;
@@ -68,32 +71,50 @@ function endGame() {
   // we write final stats
   timerTxt.textContent = duration;
   var clicsBySeconds = ((score / duration));
-  var clicsBySeconds
-   clicksTxt.textContent = Math.round(clicsBySeconds);
+  var clicsBySeconds2 = ((score2 / duration));
+  // var clicsBySeconds
+  // clicksTxt.textContent = Math.round(clicsBySeconds);
   // we show start button to play an other game
   show(startBtn);
-  show(startBtn2);
+  let winner;
+  let winplayer;
+  winner = score - score2;
+  console.log("winnaar is:" + winner)
+  if(winner == 0){
+    winplayer = "DRAW!";
+  }
+  else if(winner <= -1){
+    winplayer = "Player 2";
+    winner = -winner
+  }
+  else if(winner >= 1){
+    winplayer = "Player 1";
+  } 
 
   // we display result to the user in delayed mode
   //to update DOM elements just before the alert
   setTimeout(function () {
     alert(
-      "You made " +
-        score +
-        " clicks in " +
+        "Player 1 made " + score +
+        " click(s) in " +
         duration +
         " seconds. It is " +
-        clicsBySeconds +
-        " clicks by seconds. Try again!"
+        Math.round(clicsBySeconds) +
+        " clicks by seconds," + "\n" + 
+        "Player 2 made " + score2 +
+        " keyup(s) in " +
+        duration +
+        " seconds. It is " +
+        Math.round(clicsBySeconds2) +
+        " keys by seconds." + "\n" +
+        winplayer + " Won!" + "\n" +
+        "They won by " + winner + " points"
     );
   }, 10);
 }
 
 // we set a click event listener on the start button
 startBtn.addEventListener("click", function (e) {
-  startGame();
-});
-startBtn2.addEventListener("click", function (e) {
   startGame();
 });
 
@@ -104,5 +125,11 @@ clickArea.addEventListener("click", function (e) {
   if (!ended) {
     score++;
     scoreTxt.textContent = score;
+  }
+});
+window.addEventListener("keyup", function(e){
+  if (!ended) {
+    score2++;
+    scoreTxt2.textContent2 = score2;
   }
 });
