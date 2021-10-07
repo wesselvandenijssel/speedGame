@@ -1,0 +1,109 @@
+
+#numbers{
+    display: flex;
+}
+.content {
+    width: 200px;
+    border: 1px dashed #dc0000;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    user-select: none;
+  }
+#area{
+    display: flex;
+}
+  #clickarea {
+    width: 250px;
+    height: 300px;
+    border: 2px solid #dc0000;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    position: relative;
+  }
+  #clickarea2 {
+    width: 250px;
+    height: 300px;
+    border: 2px solid #dc0000;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    position: relative;
+  }
+
+  #logo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
+    user-select: none;
+  }
+
+  #start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 30%,
+        rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+      inset -2px -2px 3px rgba(0, 0, 0, .6);
+  }
+
+  #start:hover {
+    background-color: rgba(255, 0, 0, 1);
+  }
+
+  #start:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+      inset 2px 2px 3px rgba(0, 0, 0, .6);
+  }
+  #start2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 30%,
+        rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+      inset -2px -2px 3px rgba(0, 0, 0, .6);
+  }
+
+  #start2:hover {
+    background-color: rgba(255, 0, 0, 1);
+  }
+
+  #start2:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+      inset 2px 2px 3px rgba(0, 0, 0, .6);
+  }
